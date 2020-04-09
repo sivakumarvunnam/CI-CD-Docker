@@ -1,5 +1,7 @@
 FROM maven:3-alpine
 
+MAINTAINER Sivakumar.Vunnam@bhnetwork.com
+
 COPY pom.xml pipeline/
 
 COPY src/ pipeline/src/
