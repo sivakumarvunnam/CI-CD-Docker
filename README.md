@@ -52,3 +52,15 @@ FROM sonarqube:6.7-alpine
 ``jenkins/Dockerfile``
 ```
 FROM jenkins:lts
+```
+
+# run the script run.sh to start docker containers:
+```
+docker ps -a
+
+CONTAINER ID        IMAGE                                     COMMAND                  CREATED             STATUS              PORTS                                              NAMES
+4872f0c2f577        sivakumarvunnam/jenkins-pipeline:latest   "java -jar /pipeline…"   3 hours ago         Up 3 hours          0.0.0.0:8090->8090/tcp                             jenkins-pipeline
+2ba8dd91d251        ci-cd-docker_jenkins                      "/sbin/tini -- /usr/…"   6 hours ago         Up 6 hours          0.0.0.0:8080->8080/tcp, 0.0.0.0:50000->50000/tcp   jenkins
+a444f3dddeb3        ci-cd-docker_sonarqube                    "./bin/run.sh"           6 hours ago         Up 6 hours          0.0.0.0:9000->9000/tcp, 0.0.0.0:9092->9092/tcp     sonarqube
+```
+
