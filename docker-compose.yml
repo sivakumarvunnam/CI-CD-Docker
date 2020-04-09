@@ -1,4 +1,4 @@
-version: '3.2'
+iversion: '3.2'
 services:
   sonarqube:
     build:
@@ -17,7 +17,7 @@ services:
       - 50000:50000
     container_name: jenkins
     volumes:
-      - /tmp/jenkins:/var/jenkins_home #Remember that, the tmp directory is designed to be wiped on system reboot.
+      - /tmp/jenkins:/var/jenkins_home # tmp directory is designed to be wiped on system reboot.
       - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - sonarqube
