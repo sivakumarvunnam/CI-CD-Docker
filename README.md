@@ -64,3 +64,32 @@ CONTAINER ID        IMAGE                                     COMMAND           
 a444f3dddeb3        ci-cd-docker_sonarqube                    "./bin/run.sh"           6 hours ago         Up 6 hours          0.0.0.0:9000->9000/tcp, 0.0.0.0:9092->9092/tcp     sonarqube
 ```
 
+## Jenkins configuration
+
+We have configured Jenkins in the docker compose file to run on port 8080 therefore if we visit http://localhost:8080 we will be greeted with a screen like this.
+
+![](images/001.png)
+
+We need the admin password to proceed to installation. It’s stored in the ``/var/jenkins_home/secrets/initialAdminPassword`` directory and also It’s written as output on the console when Jenkins starts.
+
+```
+jenkins      | *************************************************************
+jenkins      |
+jenkins      | Jenkins initial setup is required. An admin user has been created and a password generated.
+jenkins      | Please use the following password to proceed to installation:
+jenkins      |
+jenkins      | 43962da2933980197e45638c79cecd4f
+jenkins      |
+jenkins      | This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+jenkins      |
+jenkins      | *************************************************************
+```
+
+To access the password from the container.
+
+```
+docker exec -it jenkins sh
+/ $ cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+After entering the password, we will download recommended plugins and define an ``admin user``.
