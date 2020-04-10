@@ -112,3 +112,35 @@ Since we will perform some operations such as ``checkout codebase`` and ``pushin
 We use the value we entered in the ID field to Docker Login in the script file. Now, we define pipeline under Jenkins Home Page:
 
 ![](images/004.png)
+
+create the New Item and selecte pipeline, click OK - it is will create a new Pipeline section, we select the Pipeline script from SCM as Definition, define the GitHub repository and the branch name, and specify the script location
+
+After that, when a push is done to the remote repository or when you manually trigger the pipeline by Build Now option, the steps described in Jenkins file will be executed.
+
+![](images/005.png)
+
+![](images/006.png)
+
+After Deployment is done and Container is running , You can check it by ``http://192.168.50.4:8090/`` number on which the service is running
+
+## Sonarqube configuration
+
+For ``Sonarqube`` we have made the following definitions in the ``pom.xml`` file of the project.
+
+```xml
+<sonar.host.url>http://sonarqube:9000</sonar.host.url>
+...
+<dependencies>
+...
+    <dependency>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>2.7.1</version>
+        <type>maven-plugin</type>
+    </dependency>
+...
+</dependencies>
+```
+
+In the docker compose file, we gave the name of the Sonarqube service which is ``sonarqube``, this is why in the ``pom.xml`` file, the sonar URL was defined as http://sonarqube:9000.
+
