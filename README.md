@@ -1,4 +1,21 @@
+# Vagrant Ubuntu 18.04 LTS base
+
+Install vagrant from official downloads - https://www.vagrantup.com/downloads.html
+
+Start the machine (user/pass: vagrant/vagrant):
+
+    vagrant up
+
+SSH into the machine:
+
+    vagrant ssh
+    
+On any problems with provisioning run:
+
+    vagrant provision --provision-with "install-bootstrap"
+
 # CI-CD-Docker
+
 CI-CD Process Using Docker, Jenkins SonarQube
 
 Project to automatically manage the process of building, testing with the highest coverage, and deployment phases.
