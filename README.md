@@ -107,4 +107,8 @@ We have added the ``Maven and Docker installers`` and have checked the ``Install
 
 Since we will perform some operations such as ``checkout codebase`` and ``pushing an image to Docker Hub``, we need to define the ``Docker Hub Credentials``. These definitions are performed under _Jenkins Home Page -> Credentials -> Global credentials (unrestricted) -> Add Credentials_ menu.
 
-![](images/009.png)
+![](images/003.png)
+
+We use the value we entered in the ID field to Docker Login in the script file. Now, we define pipeline under Jenkins Home Page:
+
+![](images/004.png)
