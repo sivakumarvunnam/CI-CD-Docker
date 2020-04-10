@@ -144,3 +144,4 @@ For ``Sonarqube`` we have made the following definitions in the ``pom.xml`` file
 
 In the docker compose file, we gave the name of the Sonarqube service which is ``sonarqube``, this is why in the ``pom.xml`` file, the sonar URL was defined as http://sonarqube:9000.
 
+![](images/007.png)
