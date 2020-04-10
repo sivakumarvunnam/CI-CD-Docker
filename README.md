@@ -93,3 +93,18 @@ docker exec -it jenkins sh
 ```
 
 After entering the password, we will download recommended plugins and define an ``admin user``.
+
+After clicking **Save and Finish** and **Start using Jenkins** buttons, we should be seeing the Jenkins homepage. One of the seven goals listed above is that we must have the ability to build an image in the Jenkins being dockerized. Take a look at the volume definitions of the Jenkins service in the compose file.
+```
+- /var/run/docker.sock:/var/run/docker.sock
+```
+
+The purpose is to communicate between the ``Docker Daemon`` and the ``Docker Client``(_we will install it on Jenkins_) over the socket. Like the docker client, we also need ``Maven`` to compile the application. For the installation of these tools, we need to perform the ``Maven`` and ``Docker Client`` configurations under _Manage Jenkins -> Global Tool Configuration_ menu.
+
+![](images/002.png)
+
+We have added the ``Maven and Docker installers`` and have checked the ``Install automatically`` checkbox. These tools are installed by Jenkins when our script([Jenkins file](https://github.com/sivakumarvunnam/CI-CD-Docker/blob/master/Jenkinsfile)) first runs. We give ``Maven-3.5.2`` and ``Docker-19.03.8`` names to the tools. We will access these tools with this names in the script file.
+
+Since we will perform some operations such as ``checkout codebase`` and ``pushing an image to Docker Hub``, we need to define the ``Docker Hub Credentials``. These definitions are performed under _Jenkins Home Page -> Credentials -> Global credentials (unrestricted) -> Add Credentials_ menu.
+
+![](images/009.png)
