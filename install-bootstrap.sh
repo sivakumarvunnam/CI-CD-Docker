@@ -46,8 +46,6 @@ function installAnsible() {
 
 function installJava() {
     if ! [ -x "$(command -v java)" ]; then
-    echo 'Error: Java is not installed.' >&2
- else
     echo "Instaling Java..."
     sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update
